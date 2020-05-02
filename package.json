@@ -1,13 +1,15 @@
 {
-  "name": "docz-example-basic",
+  "name": "Verge AI Docs",
   "version": "2.0.0",
-  "license": "MIT",
+  "license": "",
   "scripts": {
     "dev": "docz dev",
     "build": "docz build",
     "serve": "docz serve"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^0.2.5",
+    "aws-amplify": "^3.0.10",
     "docz": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
