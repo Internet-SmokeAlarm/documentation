@@ -38,3 +38,11 @@ Using the API requires some configuration to be completed ahead of time:
 1. API key: all API endpoints require authorization for access. API keys can be created through the Dashboard.
 
 2. Cloud Gateway URL: the remote API that will be used to complete requests. Defaults are included in language bindings, but custom endpoints can be specified for use with Enterprise service offerings.
+
+All following documentation assumes that you have followed the getting started guide.
+
+# FAQ
+
+1. Sometimes the API returns different information for the same request.
+
+Verge.AI's Federated Learning platform is developed to support very distributed machine learning. Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through the system. This delay might result in stale data being returned or available to the system during the requested computation. Usually, these errors will resolve within a couple of seconds. If you are noticing persistent issues, please reach out to support.
