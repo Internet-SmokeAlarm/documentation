@@ -22,8 +22,6 @@ We have language bindings in Shell and Python. You can view code examples in the
 
 # Getting Started
 
-> In order to use the default production cloud gateway, use this code:
-
 ```python
 from fedlearn import FedLearnApi
 from fedlearn import DefaultGateway
@@ -31,18 +29,22 @@ from fedlearn import DefaultGateway
 api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
 ```
 
-> Make sure to replace "...API Key Here..." with your API key
-
-Using the API requires some configuration to be completed ahead of time:
+Using the API requires some configuration to be completed:
 
 1. API key: all API endpoints require authorization for access. API keys can be created through the Dashboard.
 
 2. Cloud Gateway URL: the remote API that will be used to complete requests. Defaults are included in language bindings, but custom endpoints can be specified for use with Enterprise service offerings.
 
-All following documentation assumes that you have followed the getting started guide.
+# Default Cloud Gateway
+
+Demo and production gateways are provided through the standard service. If you are using an Enterprise installation, API location information will be located in your dashboard.
+
+`PROD : https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod`
+
+`DEMO : https://5fr43pjmc4.execute-api.us-east-1.amazonaws.com/dev`
 
 # FAQ
 
 1. Sometimes the API returns different information for the same request.
 
-Verge.AI's Federated Learning platform is developed to support very distributed machine learning. Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through the system. This delay might result in stale data being returned or available to the system during the requested computation. Usually, these errors will resolve within a couple of seconds. If you are noticing persistent issues, please reach out to support.
+Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through the system. As a result, queries can occasionally return stale data. Such errors will resolve within a few seconds in most cases. If you notice persistent issues, please reach out to support.

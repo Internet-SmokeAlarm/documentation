@@ -5,7 +5,10 @@ Groups provide logical separation between projects. Each group maintains its own
 ## Create
 
 ```python
-# Replace "GROUP_NAME" with the group name
+from fedlearn import FedLearnApi
+from fedlearn import DefaultGateway
+
+api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
 api.create_group("GROUP_NAME")
 ```
 
@@ -15,49 +18,49 @@ api.create_group("GROUP_NAME")
 Group object
 ```
 
+`POST /v1/group/create`
+
 This endpoint creates a new group.
 
-### HTTP Request
+### Request Body
 
-`POST https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod/v1/group/create`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-group_name | N/A | logical name of the new group
+Parameter | Description
+--------- | -----------
+group_name | logical name of the new group
 
 ## Delete
 
 ```python
-# Replace "GROUP_ID" with the group ID
+from fedlearn import FedLearnApi
+from fedlearn import DefaultGateway
+
+api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
 api.delete_group("GROUP_ID")
 ```
 
 > Returns:
 
 ```python
-# If successful:
 True
-# Otherwise, throws an error.
 ```
+
+`POST /v1/group/delete`
 
 This endpoint deletes an existing group.
 
-### HTTP Request
+### Request Body
 
-`POST https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod/v1/group/delete`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-group_id | N/A | ID of the group to delete
+Parameter | Description
+--------- | -----------
+group_id | ID of the group to delete
 
 ## Get
 
 ```python
-# Replace "GROUP_ID" with the group ID
+from fedlearn import FedLearnApi
+from fedlearn import DefaultGateway
+
+api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
 api.get_group("GROUP_ID")
 ```
 
@@ -67,11 +70,9 @@ api.get_group("GROUP_ID")
 Group object
 ```
 
+`GET /v1/group/get/<GROUP_ID>`
+
 This endpoint retrieves the object representation of a specific group.
-
-### HTTP Request
-
-`GET https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod/v1/group/get/<GROUP_ID>`
 
 ### URL Parameters
 
@@ -82,7 +83,10 @@ GROUP_ID | ID of the group to retrieve
 ## Get current round IDs
 
 ```python
-# Replace "GROUP_ID" with the group ID
+from fedlearn import FedLearnApi
+from fedlearn import DefaultGateway
+
+api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
 api.get_group_current_round_ids("GROUP_ID")
 ```
 
@@ -96,11 +100,9 @@ api.get_group_current_round_ids("GROUP_ID")
 ]
 ```
 
+`GET /v1/group/get/current_round_id/<GROUP_ID>`
+
 This endpoint retrieves the list of learning round IDs that are currently active for a specific group.
-
-### HTTP Request
-
-`GET https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod/v1/group/get/current_round_id/<GROUP_ID>`
 
 ### URL Parameters
 

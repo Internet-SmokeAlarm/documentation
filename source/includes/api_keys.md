@@ -3,6 +3,10 @@
 ## Creating API Keys
 
 ```python
+from fedlearn import FedLearnApi
+from fedlearn import DefaultGateway
+
+api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
 api.create_api_key()
 ```
 
@@ -12,10 +16,6 @@ api.create_api_key()
 "KEY_TEXT"
 ```
 
-> Where "KEY_TEXT" is substituted by the full-length API key string.
+`POST /v1/auth/create_key`
 
 This endpoint creates a new API key. The new API key will provide programmatic access to all resources the user (specified by the auth token included in the request) is authorized for.
-
-### HTTP Request
-
-`POST https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod/v1/auth/create_key`
