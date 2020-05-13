@@ -201,7 +201,7 @@
       <script src="javascripts/all-c5541673.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -209,12 +209,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="Logo" />
+      <img src="images/logo-9aca9154.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,19 +222,73 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#default-cloud-gateway" class="toc-h1 toc-link" data-title="Default Cloud Gateway">Default Cloud Gateway</a>
+          </li>
+          <li>
+            <a href="#faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#creating-api-keys" class="toc-h2 toc-link" data-title="Creating API Keys">Creating API Keys</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#groups" class="toc-h1 toc-link" data-title="Groups">Groups</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create" class="toc-h2 toc-link" data-title="Create">Create</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#delete" class="toc-h2 toc-link" data-title="Delete">Delete</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                  </li>
+                  <li>
+                    <a href="#get-current-round-ids" class="toc-h2 toc-link" data-title="Get current round IDs">Get current round IDs</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#learning-rounds" class="toc-h1 toc-link" data-title="Learning Rounds">Learning Rounds</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#start" class="toc-h2 toc-link" data-title="Start">Start</a>
+                  </li>
+                  <li>
+                    <a href="#cancel" class="toc-h2 toc-link" data-title="Cancel">Cancel</a>
+                  </li>
+                  <li>
+                    <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                  </li>
+                  <li>
+                    <a href="#get-aggregate-model-download-link" class="toc-h2 toc-link" data-title="Get aggregate model download link">Get aggregate model download link</a>
+                  </li>
+                  <li>
+                    <a href="#get-start-model-download-link" class="toc-h2 toc-link" data-title="Get start model download link">Get start model download link</a>
+                  </li>
+                  <li>
+                    <a href="#get-start-model-submit-link" class="toc-h2 toc-link" data-title="Get start model submit link">Get start model submit link</a>
+                  </li>
+                  <li>
+                    <a href="#get-model-update-submit-link" class="toc-h2 toc-link" data-title="Get model update submit link">Get model update submit link</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#devices" class="toc-h1 toc-link" data-title="Devices">Devices</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#is-device-active" class="toc-h2 toc-link" data-title="Is device active?">Is device active?</a>
+                  </li>
+                  <li>
+                    <a href="#register" class="toc-h2 toc-link" data-title="Register">Register</a>
                   </li>
               </ul>
           </li>
@@ -245,142 +296,119 @@
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Verge.AI API Documentation. You can use our API to manage groups, learning rounds, devices, user permissions, and API keys.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We have language bindings in Shell and Python. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='getting-started'>Getting Started</h1><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+</code></pre>
+<p>Using the API requires some configuration to be completed:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ol>
+<li><p>API key: all API endpoints require authorization for access. API keys can be created through the Dashboard.</p></li>
+<li><p>Cloud Gateway URL: the remote API that will be used to complete requests. Defaults are included in language bindings, but custom endpoints can be specified for use with Enterprise service offerings.</p></li>
+</ol>
+<h1 id='default-cloud-gateway'>Default Cloud Gateway</h1>
+<p>Demo and production gateways are provided through the standard service. If you are using an Enterprise installation, API location information will be located in your dashboard.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p><code>PROD : https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod</code></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<p><code>DEMO : https://5fr43pjmc4.execute-api.us-east-1.amazonaws.com/dev</code></p>
+<h1 id='faq'>FAQ</h1>
+<ol>
+<li>Sometimes the API returns different information for the same request.</li>
+</ol>
+
+<p>Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through the system. As a result, queries can occasionally return stale data. Such errors will resolve within a few seconds in most cases. If you notice persistent issues, please reach out to support.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='creating-api-keys'>Creating API Keys</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">create_api_key</span><span class="p">()</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Returns:</p>
 </blockquote>
+<pre class="highlight python tab-python"><code><span class="s">"KEY_TEXT"</span>
+</code></pre>
+<p><code>POST /v1/auth/create_key</code></p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>This endpoint creates a new API key. The new API key will provide programmatic access to all resources the user (specified by the auth token included in the request) is authorized for.</p>
+<h1 id='groups'>Groups</h1>
+<p>Groups provide logical separation between projects. Each group maintains its own set of users, devices, and learning rounds.</p>
+<h2 id='create'>Create</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s">"GROUP_NAME"</span><span class="p">)</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Returns:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<pre class="highlight python tab-python"><code><span class="n">Group</span> <span class="nb">object</span>
+</code></pre>
+<p><code>POST /v1/group/create</code></p>
+
+<p>This endpoint creates a new group.</p>
+<h3 id='request-body'>Request Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>group_name</td>
+<td>logical name of the new group</td>
 </tr>
 </tbody></table>
+<h2 id='delete'>Delete</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">delete_group</span><span class="p">(</span><span class="s">"GROUP_ID"</span><span class="p">)</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Returns:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<pre class="highlight python tab-python"><code><span class="bp">True</span>
+</code></pre>
+<p><code>POST /v1/group/delete</code></p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint deletes an existing group.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>ID of the group to delete</td>
+</tr>
+</tbody></table>
+<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">"GROUP_ID"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">Group</span> <span class="nb">object</span>
+</code></pre>
+<p><code>GET /v1/group/get/&lt;GROUP_ID&gt;</code></p>
+
+<p>This endpoint retrieves the object representation of a specific group.</p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -389,37 +417,28 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>GROUP_ID</td>
+<td>ID of the group to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='get-current-round-ids'>Get current round IDs</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_group_current_round_ids</span><span class="p">(</span><span class="s">"GROUP_ID"</span><span class="p">)</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Returns:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<pre class="highlight python tab-python"><code><span class="p">[</span>
+    <span class="s">"ID_1"</span><span class="p">,</span>
+    <span class="s">"ID_2"</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</code></pre>
+<p><code>GET /v1/group/get/current_round_id/&lt;GROUP_ID&gt;</code></p>
+
+<p>This endpoint retrieves the list of learning round IDs that are currently active for a specific group.</p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -428,17 +447,318 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>GROUP_ID</td>
+<td>ID of the group to retrieve</td>
+</tr>
+</tbody></table>
+<h1 id='learning-rounds'>Learning Rounds</h1>
+<p>Each learning round represents one execution of local training and central aggregation.</p>
+<h2 id='start'>Start</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<span class="kn">from</span> <span class="nn">fedlearn.models</span> <span class="kn">import</span> <span class="n">DeviceSelectionStrategy</span>
+<span class="kn">from</span> <span class="nn">fedlearn.models</span> <span class="kn">import</span> <span class="n">RoundConfiguration</span>
+<span class="kn">from</span> <span class="nn">fedlearn.models.termination_criteria</span> <span class="kn">import</span> <span class="n">DurationTerminationCriteria</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">round_config</span> <span class="o">=</span> <span class="n">RoundConfiguration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+                                  <span class="mi">0</span><span class="p">,</span>
+                                  <span class="n">DeviceSelectionStrategy</span><span class="o">.</span><span class="n">RANDOM</span><span class="p">,</span>
+                                  <span class="p">[</span>
+                                    <span class="n">DurationTerminationCriteria</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+                                  <span class="p">])</span>
+<span class="n">api</span><span class="o">.</span><span class="n">start_round</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"previous_round_id"</span><span class="p">,</span> <span class="n">round_config</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="s">"round ID"</span>
+</code></pre>
+<p><code>POST /v1/round/start</code></p>
+
+<p>Starts a new learning round.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID</td>
+</tr>
+<tr>
+<td>device_selection_strategy</td>
+<td>strategy to use when selecting devices to use in a learning round. Can be: &quot;RANDOM&quot;</td>
+</tr>
+<tr>
+<td>num_devices</td>
+<td>number of submitted device models required for successful round completion</td>
+</tr>
+<tr>
+<td>num_buffer_devices</td>
+<td>number of extra devices to select for  training. Reduces likelihood of learning round failure when extra devices are provisioned</td>
+</tr>
+<tr>
+<td>previous_round_id</td>
+<td>previous round ID. If starting a new round sequence, this should be an empty string</td>
+</tr>
+<tr>
+<td>termination_criteria</td>
+<td>list of termination criteria for the round. Should be an empty list ([]) if the round should wait for manual termination or successful completion.</td>
+</tr>
+</tbody></table>
+<h2 id='cancel'>Cancel</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">cancel_round</span><span class="p">(</span><span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="bp">True</span>
+</code></pre>
+<p><code>POST /v1/round/cancel</code></p>
+
+<p>Cancel a learning round.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>round_id</td>
+<td>learning round ID to cancel</td>
+</tr>
+</tbody></table>
+<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">Round</span> <span class="nb">object</span>
+</code></pre>
+<p><code>GET /v1/round/get/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+
+<p>Retrieve a learning round.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-aggregate-model-download-link'>Get aggregate model download link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round_aggregate_model_download_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/round/get/aggregate_model/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+
+<p>Retrieve a download link for a learning round&#39;s aggregate model.</p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-start-model-download-link'>Get start model download link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round_start_model_download_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"model_url"</span> <span class="p">:</span> <span class="s">"MODEL URL"</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/round/get/start_model/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+
+<p>Retrieve a download link for a learning round&#39;s start model.</p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-start-model-submit-link'>Get start model submit link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round_start_model_submit_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"model_url"</span> <span class="p">:</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/round/submit_start_model</code></p>
+
+<p>Get an upload link for a learning round&#39;s start model.</p>
+<h3 id='request-body-3'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>round_id</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-model-update-submit-link'>Get model update submit link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_model_update_submit_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">,</span> <span class="s">"device_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"model_url"</span> <span class="p">:</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/submit_model_update</code></p>
+
+<p>Get an upload link for a device active in a specified learning round.</p>
+<h3 id='request-body-4'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>round_id</td>
+<td>learning round ID to retrieve</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>device ID</td>
+</tr>
+</tbody></table>
+<h1 id='devices'>Devices</h1>
+<p>Devices are authenticated edge systems that are members of a specific group.</p>
+<h2 id='is-device-active'>Is device active?</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">is_device_active</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">,</span> <span class="s">"device_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+</code></pre>
+<p><code>GET /v1/device/get/active/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;/&lt;DEVICE_ID&gt;</code></p>
+
+<p>Returns a boolean value whether or not this device is active in a specified learning round.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID (the group that the device belongs to)</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>round ID (learning round to parse)</td>
+</tr>
+<tr>
+<td>DEVICE_ID</td>
+<td>device ID</td>
+</tr>
+</tbody></table>
+<h2 id='register'>Register</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">register_device</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">Device</span> <span class="nb">object</span>
+</code></pre>
+<p><code>POST /v1/device/register</code></p>
+
+<p>Creates a new device &amp; registers it to the specified group.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID that the new device will belong to</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
 <table><thead>
 <tr>
 <th>Error Code</th>
@@ -450,36 +770,16 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- You are not authorized to access this resource.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>Not Found -- The specified resource could not be found.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re being rate limited.</td>
 </tr>
 <tr>
 <td>500</td>
@@ -494,10 +794,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>

@@ -1,0 +1,14 @@
+<h1 id='authentication'>Authentication</h1><h2 id='creating-api-keys'>Creating API Keys</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">create_api_key</span><span class="p">()</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="s">"KEY_TEXT"</span>
+</code></pre>
+<p><code>POST /v1/auth/create_key</code></p>
+
+<p>This endpoint creates a new API key. The new API key will provide programmatic access to all resources the user (specified by the auth token included in the request) is authorized for.</p>

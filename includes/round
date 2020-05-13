@@ -1,0 +1,245 @@
+<h1 id='learning-rounds'>Learning Rounds</h1>
+<p>Each learning round represents one execution of local training and central aggregation.</p>
+<h2 id='start'>Start</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<span class="kn">from</span> <span class="nn">fedlearn.models</span> <span class="kn">import</span> <span class="n">DeviceSelectionStrategy</span>
+<span class="kn">from</span> <span class="nn">fedlearn.models</span> <span class="kn">import</span> <span class="n">RoundConfiguration</span>
+<span class="kn">from</span> <span class="nn">fedlearn.models.termination_criteria</span> <span class="kn">import</span> <span class="n">DurationTerminationCriteria</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">round_config</span> <span class="o">=</span> <span class="n">RoundConfiguration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+                                  <span class="mi">0</span><span class="p">,</span>
+                                  <span class="n">DeviceSelectionStrategy</span><span class="o">.</span><span class="n">RANDOM</span><span class="p">,</span>
+                                  <span class="p">[</span>
+                                    <span class="n">DurationTerminationCriteria</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+                                  <span class="p">])</span>
+<span class="n">api</span><span class="o">.</span><span class="n">start_round</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"previous_round_id"</span><span class="p">,</span> <span class="n">round_config</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="s">"round ID"</span>
+</code></pre>
+<p><code>POST /v1/round/start</code></p>
+
+<p>Starts a new learning round.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID</td>
+</tr>
+<tr>
+<td>device_selection_strategy</td>
+<td>strategy to use when selecting devices to use in a learning round. Can be: &quot;RANDOM&quot;</td>
+</tr>
+<tr>
+<td>num_devices</td>
+<td>number of submitted device models required for successful round completion</td>
+</tr>
+<tr>
+<td>num_buffer_devices</td>
+<td>number of extra devices to select for  training. Reduces likelihood of learning round failure when extra devices are provisioned</td>
+</tr>
+<tr>
+<td>previous_round_id</td>
+<td>previous round ID. If starting a new round sequence, this should be an empty string</td>
+</tr>
+<tr>
+<td>termination_criteria</td>
+<td>list of termination criteria for the round. Should be an empty list ([]) if the round should wait for manual termination or successful completion.</td>
+</tr>
+</tbody></table>
+<h2 id='cancel'>Cancel</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">cancel_round</span><span class="p">(</span><span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="bp">True</span>
+</code></pre>
+<p><code>POST /v1/round/cancel</code></p>
+
+<p>Cancel a learning round.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>round_id</td>
+<td>learning round ID to cancel</td>
+</tr>
+</tbody></table>
+<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">Round</span> <span class="nb">object</span>
+</code></pre>
+<p><code>GET /v1/round/get/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+
+<p>Retrieve a learning round.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-aggregate-model-download-link'>Get aggregate model download link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round_aggregate_model_download_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/round/get/aggregate_model/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+
+<p>Retrieve a download link for a learning round&#39;s aggregate model.</p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-start-model-download-link'>Get start model download link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round_start_model_download_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"model_url"</span> <span class="p">:</span> <span class="s">"MODEL URL"</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/round/get/start_model/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+
+<p>Retrieve a download link for a learning round&#39;s start model.</p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GROUP_ID</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>ROUND_ID</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-start-model-submit-link'>Get start model submit link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_round_start_model_submit_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"model_url"</span> <span class="p">:</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/round/submit_start_model</code></p>
+
+<p>Get an upload link for a learning round&#39;s start model.</p>
+<h3 id='request-body-3'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>round_id</td>
+<td>learning round ID to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-model-update-submit-link'>Get model update submit link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
+<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">get_model_update_submit_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">,</span> <span class="s">"device_id"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"model_url"</span> <span class="p">:</span> <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/submit_model_update</code></p>
+
+<p>Get an upload link for a device active in a specified learning round.</p>
+<h3 id='request-body-4'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group_id</td>
+<td>group ID of parent to learning round</td>
+</tr>
+<tr>
+<td>round_id</td>
+<td>learning round ID to retrieve</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>device ID</td>
+</tr>
+</tbody></table>
