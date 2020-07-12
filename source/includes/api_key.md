@@ -1,21 +1,25 @@
 # Authentication
 
-## Creating API Keys
+## Create API Key
 
 ```python
-from fedlearn import FedLearnApi
-from fedlearn import DefaultGateway
+import vergeai
+vergeai.api_key = "...API Key Here..."
 
-api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
-api.create_api_key()
+response = vergeai.APIKey.create()
 ```
 
 > Returns:
 
 ```python
-"KEY_TEXT"
+{
+    "statusCode": 200,
+    "body": {
+        "key": "...key plaintext value here..."
+    }
+}
 ```
 
-`POST /v1/auth/create_key`
+`POST /v1/auth/create`
 
 This endpoint creates a new API key. The new API key will provide programmatic access to all resources the user (specified by the auth token included in the request) is authorized for.

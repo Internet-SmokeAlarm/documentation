@@ -5,46 +5,55 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python
 
 includes:
-  - api_keys
-  - group
-  - round
+  - api_key
+  - project
+  - experiment
+  - job
   - device
   - errors
+  - logging
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Verge.AI API Documentation. You can use our API to manage groups, learning rounds, devices, user permissions, and API keys.
+Welcome to the Verge AI API Documentation. You can use our API to manage projects, experiments, jobs, devices, user permissions, and API keys.
 
-We have language bindings in Shell and Python. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Documentation is provided for all language bindings that we offer. You can view code examples in the dark area to the right, and you can switch the language to use in the examples with the tabs in the top right.
 
 # Getting Started
 
 ```python
-from fedlearn import FedLearnApi
-from fedlearn import DefaultGateway
+import vergeai
+vergeai.api_key = "...Your API Key Here..."
 
-api = FedLearnApi(DefaultGateway.PRODUCTION, "...API Key Here...")
+# You can now make API requests here!
 ```
 
-Using the API requires some configuration to be completed:
+Client setup requires an API key and an installation of your preferred language binding.
 
-1. API key: all API endpoints require authorization for access. API keys can be created through the Dashboard.
+# Response Object Data
 
-2. Cloud Gateway URL: the remote API that will be used to complete requests. Defaults are included in language bindings, but custom endpoints can be specified for use with Enterprise service offerings.
+Depending on the language binding, data will be returned using different formats. Each format is demonstrated here.
 
-# Default Cloud Gateway
+```python
+# make a call to the API
+response = vergeai.Object.method(...parameters...)
 
-Demo and production gateways are provided through the standard service. If you are using an Enterprise installation, API location information will be located in your dashboard.
+# HTTP status code
+response.status_code
 
-`PROD : https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod`
+# JSON data
+response.data
+```
 
-`DEMO : https://5fr43pjmc4.execute-api.us-east-1.amazonaws.com/dev`
+When displaying response information throughout this documentation, the raw JSON response will be displayed.
+
+- In the Python language bindings, the "body" element in the response JSON is mapped to the data attribute of the response object. The status code in the response JSON is mapped to the status code attribute in the response object.
 
 # FAQ
 
-1. Sometimes the API returns different information for the same request.
+1. Sometimes the API returns stale information.
 
-Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through the system. As a result, queries can occasionally return stale data. Such errors will resolve within a few seconds in most cases. If you notice persistent issues, please reach out to support.
+Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through our system. As a result, queries can occasionally return stale data. Such errors will resolve within a few seconds in most cases. If you notice persistent issues, please reach out to support.
