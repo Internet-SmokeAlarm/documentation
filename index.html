@@ -225,7 +225,7 @@
             <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
           </li>
           <li>
-            <a href="#default-cloud-gateway" class="toc-h1 toc-link" data-title="Default Cloud Gateway">Default Cloud Gateway</a>
+            <a href="#response-object-data" class="toc-h1 toc-link" data-title="Response Object Data">Response Object Data</a>
           </li>
           <li>
             <a href="#faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
@@ -234,12 +234,12 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#creating-api-keys" class="toc-h2 toc-link" data-title="Creating API Keys">Creating API Keys</a>
+                    <a href="#create-api-key" class="toc-h2 toc-link" data-title="Create API Key">Create API Key</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#groups" class="toc-h1 toc-link" data-title="Groups">Groups</a>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#create" class="toc-h2 toc-link" data-title="Create">Create</a>
@@ -251,33 +251,41 @@
                     <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
                   </li>
                   <li>
-                    <a href="#get-current-round-ids" class="toc-h2 toc-link" data-title="Get current round IDs">Get current round IDs</a>
+                    <a href="#get-active-jobs" class="toc-h2 toc-link" data-title="Get active jobs">Get active jobs</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#learning-rounds" class="toc-h1 toc-link" data-title="Learning Rounds">Learning Rounds</a>
+            <a href="#experiments" class="toc-h1 toc-link" data-title="Experiments">Experiments</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#start" class="toc-h2 toc-link" data-title="Start">Start</a>
+                    <a href="#create-experiment" class="toc-h2 toc-link" data-title="Create Experiment">Create Experiment</a>
                   </li>
                   <li>
-                    <a href="#cancel" class="toc-h2 toc-link" data-title="Cancel">Cancel</a>
+                    <a href="#get-experiment" class="toc-h2 toc-link" data-title="Get Experiment">Get Experiment</a>
                   </li>
                   <li>
-                    <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                    <a href="#submit-start-model" class="toc-h2 toc-link" data-title="Submit start model">Submit start model</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#jobs" class="toc-h1 toc-link" data-title="Jobs">Jobs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-job" class="toc-h2 toc-link" data-title="Create Job">Create Job</a>
                   </li>
                   <li>
-                    <a href="#get-aggregate-model-download-link" class="toc-h2 toc-link" data-title="Get aggregate model download link">Get aggregate model download link</a>
+                    <a href="#cancel-job" class="toc-h2 toc-link" data-title="Cancel Job">Cancel Job</a>
                   </li>
                   <li>
-                    <a href="#get-start-model-download-link" class="toc-h2 toc-link" data-title="Get start model download link">Get start model download link</a>
+                    <a href="#get-job" class="toc-h2 toc-link" data-title="Get Job">Get Job</a>
                   </li>
                   <li>
-                    <a href="#get-start-model-submit-link" class="toc-h2 toc-link" data-title="Get start model submit link">Get start model submit link</a>
+                    <a href="#get-aggregate-model" class="toc-h2 toc-link" data-title="Get aggregate model">Get aggregate model</a>
                   </li>
                   <li>
-                    <a href="#get-model-update-submit-link" class="toc-h2 toc-link" data-title="Get model update submit link">Get model update submit link</a>
+                    <a href="#get-start-model" class="toc-h2 toc-link" data-title="Get start model">Get start model</a>
                   </li>
               </ul>
           </li>
@@ -290,10 +298,21 @@
                   <li>
                     <a href="#register" class="toc-h2 toc-link" data-title="Register">Register</a>
                   </li>
+                  <li>
+                    <a href="#submit-model" class="toc-h2 toc-link" data-title="Submit Model">Submit Model</a>
+                  </li>
               </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#logging" class="toc-h1 toc-link" data-title="Logging">Logging</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#configuring-the-log-level" class="toc-h2 toc-link" data-title="Configuring the log level">Configuring the log level</a>
+                  </li>
+              </ul>
           </li>
       </ul>
     </div>
@@ -301,62 +320,75 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Verge.AI API Documentation. You can use our API to manage groups, learning rounds, devices, user permissions, and API keys.</p>
+<p>Welcome to the Verge AI API Documentation. You can use our API to manage projects, experiments, jobs, devices, user permissions, and API keys.</p>
 
-<p>We have language bindings in Shell and Python. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<h1 id='getting-started'>Getting Started</h1><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<p>Documentation is provided for all language bindings that we offer. You can view code examples in the dark area to the right, and you can switch the language to use in the examples with the tabs in the top right.</p>
+<h1 id='getting-started'>Getting Started</h1><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...Your API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
+<span class="c"># You can now make API requests here!</span>
 </code></pre>
-<p>Using the API requires some configuration to be completed:</p>
+<p>Client setup requires an API key and an installation of your preferred language binding.</p>
+<h1 id='response-object-data'>Response Object Data</h1>
+<p>Depending on the language binding, data will be returned using different formats. Each format is demonstrated here.</p>
+<pre class="highlight python tab-python"><code><span class="c"># make a call to the API</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Object</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="o">...</span><span class="n">parameters</span><span class="o">...</span><span class="p">)</span>
 
-<ol>
-<li><p>API key: all API endpoints require authorization for access. API keys can be created through the Dashboard.</p></li>
-<li><p>Cloud Gateway URL: the remote API that will be used to complete requests. Defaults are included in language bindings, but custom endpoints can be specified for use with Enterprise service offerings.</p></li>
-</ol>
-<h1 id='default-cloud-gateway'>Default Cloud Gateway</h1>
-<p>Demo and production gateways are provided through the standard service. If you are using an Enterprise installation, API location information will be located in your dashboard.</p>
+<span class="c"># HTTP status code</span>
+<span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
 
-<p><code>PROD : https://ivcqfi3rrc.execute-api.us-east-1.amazonaws.com/prod</code></p>
+<span class="c"># JSON data</span>
+<span class="n">response</span><span class="o">.</span><span class="n">data</span>
+</code></pre>
+<p>When displaying response information throughout this documentation, the raw JSON response will be displayed.</p>
 
-<p><code>DEMO : https://5fr43pjmc4.execute-api.us-east-1.amazonaws.com/dev</code></p>
+<ul>
+<li>In the Python language bindings, the &quot;body&quot; element in the response JSON is mapped to the data attribute of the response object. The status code in the response JSON is mapped to the status code attribute in the response object.</li>
+</ul>
 <h1 id='faq'>FAQ</h1>
 <ol>
-<li>Sometimes the API returns different information for the same request.</li>
+<li>Sometimes the API returns stale information.</li>
 </ol>
 
-<p>Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through the system. As a result, queries can occasionally return stale data. Such errors will resolve within a few seconds in most cases. If you notice persistent issues, please reach out to support.</p>
-<h1 id='authentication'>Authentication</h1><h2 id='creating-api-keys'>Creating API Keys</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<p>Due to the distributed nature of the computation, data can sometimes take a few seconds to propagate through our system. As a result, queries can occasionally return stale data. Such errors will resolve within a few seconds in most cases. If you notice persistent issues, please reach out to support.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='create-api-key'>Create API Key</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">create_api_key</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">APIKey</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="s">"KEY_TEXT"</span>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"key"</span><span class="p">:</span> <span class="s">"...key plaintext value here..."</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p><code>POST /v1/auth/create_key</code></p>
+<p><code>POST /v1/auth/create</code></p>
 
 <p>This endpoint creates a new API key. The new API key will provide programmatic access to all resources the user (specified by the auth token included in the request) is authorized for.</p>
-<h1 id='groups'>Groups</h1>
-<p>Groups provide logical separation between projects. Each group maintains its own set of users, devices, and learning rounds.</p>
-<h2 id='create'>Create</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<h1 id='projects'>Projects</h1>
+<p>A Project contains all resources associated with one Federated Learning deployment, including Experiments, Jobs, and Devices. Additionally, users can be configured on a per-project level.</p>
+<h2 id='create'>Create</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s">"GROUP_NAME"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s">"My Friendly Project Name"</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="n">Group</span> <span class="nb">object</span>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'project_id'</span><span class="p">:</span> <span class="s">'92cae23fa2754c5982866471c9b43fb7'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p><code>POST /v1/group/create</code></p>
+<p><code>POST /v1/project/create</code></p>
 
-<p>This endpoint creates a new group.</p>
+<p>Create a new Project.</p>
 <h3 id='request-body'>Request Body</h3>
 <table><thead>
 <tr>
@@ -365,24 +397,26 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>group_name</td>
-<td>logical name of the new group</td>
+<td>project_name</td>
+<td>Friendly name of the project</td>
 </tr>
 </tbody></table>
-<h2 id='delete'>Delete</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<h2 id='delete'>Delete</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">delete_group</span><span class="p">(</span><span class="s">"GROUP_ID"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="bp">True</span>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
 </code></pre>
-<p><code>POST /v1/group/delete</code></p>
+<p><code>POST /v1/project/delete</code></p>
 
-<p>This endpoint deletes an existing group.</p>
+<p>Delete a Project.</p>
 <h3 id='request-body-2'>Request Body</h3>
 <table><thead>
 <tr>
@@ -391,259 +425,47 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>group_id</td>
-<td>ID of the group to delete</td>
+<td>project_id</td>
+<td>Project ID</td>
 </tr>
 </tbody></table>
-<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s">"GROUP_ID"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="n">Group</span> <span class="nb">object</span>
-</code></pre>
-<p><code>GET /v1/group/get/&lt;GROUP_ID&gt;</code></p>
-
-<p>This endpoint retrieves the object representation of a specific group.</p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GROUP_ID</td>
-<td>ID of the group to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='get-current-round-ids'>Get current round IDs</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_group_current_round_ids</span><span class="p">(</span><span class="s">"GROUP_ID"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="p">[</span>
-    <span class="s">"ID_1"</span><span class="p">,</span>
-    <span class="s">"ID_2"</span><span class="p">,</span>
-    <span class="o">...</span>
-<span class="p">]</span>
-</code></pre>
-<p><code>GET /v1/group/get/current_round_id/&lt;GROUP_ID&gt;</code></p>
-
-<p>This endpoint retrieves the list of learning round IDs that are currently active for a specific group.</p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GROUP_ID</td>
-<td>ID of the group to retrieve</td>
-</tr>
-</tbody></table>
-<h1 id='learning-rounds'>Learning Rounds</h1>
-<p>Each learning round represents one execution of local training and central aggregation.</p>
-<h2 id='start'>Start</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-<span class="kn">from</span> <span class="nn">fedlearn.models</span> <span class="kn">import</span> <span class="n">DeviceSelectionStrategy</span>
-<span class="kn">from</span> <span class="nn">fedlearn.models</span> <span class="kn">import</span> <span class="n">RoundConfiguration</span>
-<span class="kn">from</span> <span class="nn">fedlearn.models.termination_criteria</span> <span class="kn">import</span> <span class="n">DurationTerminationCriteria</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">round_config</span> <span class="o">=</span> <span class="n">RoundConfiguration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
-                                  <span class="mi">0</span><span class="p">,</span>
-                                  <span class="n">DeviceSelectionStrategy</span><span class="o">.</span><span class="n">RANDOM</span><span class="p">,</span>
-                                  <span class="p">[</span>
-                                    <span class="n">DurationTerminationCriteria</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-                                  <span class="p">])</span>
-<span class="n">api</span><span class="o">.</span><span class="n">start_round</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"previous_round_id"</span><span class="p">,</span> <span class="n">round_config</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="s">"round ID"</span>
-</code></pre>
-<p><code>POST /v1/round/start</code></p>
-
-<p>Starts a new learning round.</p>
-<h3 id='request-body'>Request Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>group_id</td>
-<td>group ID</td>
-</tr>
-<tr>
-<td>device_selection_strategy</td>
-<td>strategy to use when selecting devices to use in a learning round. Can be: &quot;RANDOM&quot;</td>
-</tr>
-<tr>
-<td>num_devices</td>
-<td>number of submitted device models required for successful round completion</td>
-</tr>
-<tr>
-<td>num_buffer_devices</td>
-<td>number of extra devices to select for  training. Reduces likelihood of learning round failure when extra devices are provisioned</td>
-</tr>
-<tr>
-<td>previous_round_id</td>
-<td>previous round ID. If starting a new round sequence, this should be an empty string</td>
-</tr>
-<tr>
-<td>termination_criteria</td>
-<td>list of termination criteria for the round. Should be an empty list ([]) if the round should wait for manual termination or successful completion.</td>
-</tr>
-</tbody></table>
-<h2 id='cancel'>Cancel</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">cancel_round</span><span class="p">(</span><span class="s">"round_id"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="bp">True</span>
-</code></pre>
-<p><code>POST /v1/round/cancel</code></p>
-
-<p>Cancel a learning round.</p>
-<h3 id='request-body-2'>Request Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>round_id</td>
-<td>learning round ID to cancel</td>
-</tr>
-</tbody></table>
-<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_round</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="n">Round</span> <span class="nb">object</span>
-</code></pre>
-<p><code>GET /v1/round/get/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
-
-<p>Retrieve a learning round.</p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GROUP_ID</td>
-<td>group ID of parent to learning round</td>
-</tr>
-<tr>
-<td>ROUND_ID</td>
-<td>learning round ID to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='get-aggregate-model-download-link'>Get aggregate model download link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_round_aggregate_model_download_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
 <pre class="highlight python tab-python"><code><span class="p">{</span>
-    <span class="o">...</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'name'</span><span class="p">:</span> <span class="s">'my_name'</span><span class="p">,</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'cdace1ad391e444aa5ade2ce7f04c5e6'</span><span class="p">,</span>
+        <span class="s">'devices'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'experiments'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'9148548012074b068ba6d260f675ab50'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">'is_active'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s">'jobs'</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s">'hyperparameters'</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s">'ID'</span><span class="p">:</span> <span class="s">'9148548012074b068ba6d260f675ab50'</span><span class="p">,</span>
+                <span class="s">'current_job'</span><span class="p">:</span> <span class="s">'NONE'</span><span class="p">,</span>
+                <span class="s">'current_model'</span><span class="p">:</span> <span class="p">{}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">'members'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'123123'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">'permission_level'</span><span class="p">:</span> <span class="mi">100</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">'billing'</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p><code>GET /v1/round/get/aggregate_model/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
+<p><code>GET /v1/project/get/&lt;project_id&gt;</code></p>
 
-<p>Retrieve a download link for a learning round&#39;s aggregate model.</p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GROUP_ID</td>
-<td>group ID of parent to learning round</td>
-</tr>
-<tr>
-<td>ROUND_ID</td>
-<td>learning round ID to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='get-start-model-download-link'>Get start model download link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_round_start_model_download_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="p">{</span>
-    <span class="s">"model_url"</span> <span class="p">:</span> <span class="s">"MODEL URL"</span>
-<span class="p">}</span>
-</code></pre>
-<p><code>GET /v1/round/get/start_model/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;</code></p>
-
-<p>Retrieve a download link for a learning round&#39;s start model.</p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GROUP_ID</td>
-<td>group ID of parent to learning round</td>
-</tr>
-<tr>
-<td>ROUND_ID</td>
-<td>learning round ID to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='get-start-model-submit-link'>Get start model submit link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_round_start_model_submit_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="p">{</span>
-    <span class="s">"model_url"</span> <span class="p">:</span> <span class="o">...</span>
-<span class="p">}</span>
-</code></pre>
-<p><code>POST /v1/round/submit_start_model</code></p>
-
-<p>Get an upload link for a learning round&#39;s start model.</p>
+<p>Get a Project.</p>
 <h3 id='request-body-3'>Request Body</h3>
 <table><thead>
 <tr>
@@ -652,30 +474,28 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>group_id</td>
-<td>group ID of parent to learning round</td>
-</tr>
-<tr>
-<td>round_id</td>
-<td>learning round ID to retrieve</td>
+<td>project_id</td>
+<td>Project ID</td>
 </tr>
 </tbody></table>
-<h2 id='get-model-update-submit-link'>Get model update submit link</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<h2 id='get-active-jobs'>Get active jobs</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">get_model_update_submit_link</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">,</span> <span class="s">"device_id"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">active_jobs</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
 <pre class="highlight python tab-python"><code><span class="p">{</span>
-    <span class="s">"model_url"</span> <span class="p">:</span> <span class="o">...</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'job_ids'</span><span class="p">:</span> <span class="p">[</span><span class="s">'3800a892631b4c75b41f035e304c36c4'</span><span class="p">]</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p><code>POST /v1/submit_model_update</code></p>
+<p><code>GET /v1/project/active_jobs/&lt;project_id&gt;</code></p>
 
-<p>Get an upload link for a device active in a specified learning round.</p>
+<p>Get a list of active Jobs in a Project.</p>
 <h3 id='request-body-4'>Request Body</h3>
 <table><thead>
 <tr>
@@ -684,68 +504,36 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>group_id</td>
-<td>group ID of parent to learning round</td>
-</tr>
-<tr>
-<td>round_id</td>
-<td>learning round ID to retrieve</td>
-</tr>
-<tr>
-<td>device_id</td>
-<td>device ID</td>
+<td>project_id</td>
+<td>Project ID</td>
 </tr>
 </tbody></table>
-<h1 id='devices'>Devices</h1>
-<p>Devices are authenticated edge systems that are members of a specific group.</p>
-<h2 id='is-device-active'>Is device active?</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<h1 id='experiments'>Experiments</h1>
+<p>An experiment represents a single model + hyperparameter configuration, and is comprised of a series of Jobs, which are executed sequentially to train the provided model with the specified hyperparameters.</p>
+<h2 id='create-experiment'>Create Experiment</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">is_device_active</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">,</span> <span class="s">"device_id"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'64fb44b25e0d48d2b74e120513687bd7'</span><span class="p">,</span>
+        <span class="s">'jobs'</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s">'hyperparameters'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'current_job'</span><span class="p">:</span> <span class="s">'NONE'</span><span class="p">,</span>
+        <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'current_model'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'is_active'</span><span class="p">:</span> <span class="bp">False</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p><code>GET /v1/device/get/active/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;/&lt;DEVICE_ID&gt;</code></p>
+<p><code>POST /v1/experiment/create</code></p>
 
-<p>Returns a boolean value whether or not this device is active in a specified learning round.</p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>GROUP_ID</td>
-<td>group ID (the group that the device belongs to)</td>
-</tr>
-<tr>
-<td>ROUND_ID</td>
-<td>round ID (learning round to parse)</td>
-</tr>
-<tr>
-<td>DEVICE_ID</td>
-<td>device ID</td>
-</tr>
-</tbody></table>
-<h2 id='register'>Register</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">register_device</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">)</span>
-</code></pre>
-<blockquote>
-<p>Returns:</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="n">Device</span> <span class="nb">object</span>
-</code></pre>
-<p><code>POST /v1/device/register</code></p>
-
-<p>Creates a new device &amp; registers it to the specified group.</p>
+<p>Create a new experiment.</p>
 <h3 id='request-body'>Request Body</h3>
 <table><thead>
 <tr>
@@ -754,8 +542,451 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>group_id</td>
-<td>group ID that the new device will belong to</td>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-experiment'>Get Experiment</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                  <span class="n">experiment_id</span><span class="o">=</span><span class="s">"...Experiment ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'e627ffd92d6449e9a411b6462b47b47d'</span><span class="p">,</span>
+        <span class="s">'jobs'</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s">'hyperparameters'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'learning_rate'</span><span class="p">:</span> <span class="mf">0.01</span>
+        <span class="p">},</span>
+        <span class="s">'current_job'</span><span class="p">:</span> <span class="s">'NONE'</span><span class="p">,</span>
+        <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'entity_id'</span><span class="p">:</span> <span class="s">'e627ffd92d6449e9a411b6462b47b47d'</span><span class="p">,</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="s">'ace0e5d0f50c40ec89e38f770c23eedd/e627ffd92d6449e9a411b6462b47b47d/start_model'</span><span class="p">,</span>
+            <span class="s">'size'</span><span class="p">:</span> <span class="s">'403693'</span>
+        <span class="p">},</span>
+        <span class="s">'current_model'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'entity_id'</span><span class="p">:</span> <span class="s">'e627ffd92d6449e9a411b6462b47b47d'</span><span class="p">,</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="s">'ace0e5d0f50c40ec89e38f770c23eedd/e627ffd92d6449e9a411b6462b47b47d/start_model'</span><span class="p">,</span>
+            <span class="s">'size'</span><span class="p">:</span> <span class="s">'403693'</span>
+        <span class="p">},</span>
+        <span class="s">'is_active'</span><span class="p">:</span> <span class="bp">False</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/experiment/get/&lt;project_id&gt;/&lt;experiment_id&gt;</code></p>
+
+<p>Get an experiment.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>experiment_id</td>
+<td>The experiment that this start model will be submitted to</td>
+</tr>
+</tbody></table>
+<h2 id='submit-start-model'>Submit start model</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">submit_start_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">},</span>
+                                                 <span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                                 <span class="n">experiment_id</span><span class="o">=</span><span class="s">"...Experiment ID..."</span><span class="p">,</span>
+                                                 <span class="n">block</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/experiment/submit_start_model</code></p>
+
+<p>Submit an experiment&#39;s start model.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>model</td>
+<td>dictionary</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>experiment_id</td>
+<td>The experiment that this start model will be submitted to</td>
+</tr>
+<tr>
+<td>block</td>
+<td>True/False whether or not we should wait to prevent stale data</td>
+</tr>
+</tbody></table>
+<h1 id='jobs'>Jobs</h1>
+<p>Each Job represents one execution of training at the edge and aggregation.</p>
+<h2 id='create-job'>Create Job</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Job</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                              <span class="n">device_selection_strategy</span><span class="o">=</span><span class="s">"RANDOM"</span><span class="p">,</span>
+                              <span class="n">experiment_id</span><span class="o">=</span><span class="s">"...Experiment ID..."</span><span class="p">,</span>
+                              <span class="n">num_devices</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                              <span class="n">num_buffer_devices</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">termination_criteria</span><span class="o">=</span><span class="p">[])</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'a9ef7a04d05a4bf9a779738f8d695696'</span><span class="p">,</span>
+        <span class="s">'status'</span><span class="p">:</span> <span class="s">'IN_PROGRESS'</span><span class="p">,</span>
+        <span class="s">'devices'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">'dg-vG9lw5qTBzc2cDwfUdl3CtXKfTfUT'</span>
+        <span class="p">],</span>
+        <span class="s">'aggregate_model'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'entity_id'</span><span class="p">:</span> <span class="s">'d157244577c04b1a83943b425a04f63a'</span><span class="p">,</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="s">'e0e24bf5128c46308e578fa1e19783ef/d157244577c04b1a83943b425a04f63a/start_model'</span><span class="p">,</span>
+            <span class="s">'size'</span><span class="p">:</span> <span class="s">'403693'</span>
+        <span class="p">},</span>
+        <span class="s">'configuration'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'num_devices'</span><span class="p">:</span> <span class="s">'1'</span><span class="p">,</span>
+            <span class="s">'num_buffer_devices'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>
+            <span class="s">'device_selection_strategy'</span><span class="p">:</span> <span class="s">'RANDOM'</span><span class="p">,</span>
+            <span class="s">'termination_criteria'</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">},</span>
+        <span class="s">'models'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'created_on'</span><span class="p">:</span> <span class="s">'1593979876.5036337'</span><span class="p">,</span>
+        <span class="s">'billable_size'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>
+        <span class="s">'project_id'</span><span class="p">:</span> <span class="s">'e0e24bf5128c46308e578fa1e19783ef'</span><span class="p">,</span>
+        <span class="s">'experiment_id'</span><span class="p">:</span> <span class="s">'d157244577c04b1a83943b425a04f63a'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/job/create</code></p>
+
+<p>Create a new Job.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project the new Job belongs to</td>
+</tr>
+<tr>
+<td>experiment_id</td>
+<td>Experiment the new Job belongs to</td>
+</tr>
+<tr>
+<td>device_selection_strategy</td>
+<td>strategy to use when selecting devices to use in a learning round. Can be one of: &quot;RANDOM&quot;</td>
+</tr>
+<tr>
+<td>num_devices</td>
+<td>number of submitted device models required for successful round completion</td>
+</tr>
+<tr>
+<td>num_buffer_devices</td>
+<td>number of extra devices to select for training. Reduces likelihood of Job failure due to devices that fail</td>
+</tr>
+<tr>
+<td>termination_criteria</td>
+<td>list of termination criteria for the Job. Should be an empty list ([]) if the Job should wait for manual termination or successful completion.</td>
+</tr>
+</tbody></table>
+<h2 id='cancel-job'>Cancel Job</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Job</span><span class="o">.</span><span class="n">cancel</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                              <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/job/cancel</code></p>
+
+<p>Cancel a Job.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>Job to cancel</td>
+</tr>
+</tbody></table>
+<h2 id='get-job'>Get Job</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                           <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'a9ef7a04d05a4bf9a779738f8d695696'</span><span class="p">,</span>
+        <span class="s">'status'</span><span class="p">:</span> <span class="s">'IN_PROGRESS'</span><span class="p">,</span>
+        <span class="s">'devices'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">'dg-vG9lw5qTBzc2cDwfUdl3CtXKfTfUT'</span>
+        <span class="p">],</span>
+        <span class="s">'aggregate_model'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'entity_id'</span><span class="p">:</span> <span class="s">'d157244577c04b1a83943b425a04f63a'</span><span class="p">,</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="s">'e0e24bf5128c46308e578fa1e19783ef/d157244577c04b1a83943b425a04f63a/start_model'</span><span class="p">,</span>
+            <span class="s">'size'</span><span class="p">:</span> <span class="s">'403693'</span>
+        <span class="p">},</span>
+        <span class="s">'configuration'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'num_devices'</span><span class="p">:</span> <span class="s">'1'</span><span class="p">,</span>
+            <span class="s">'num_buffer_devices'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>
+            <span class="s">'device_selection_strategy'</span><span class="p">:</span> <span class="s">'RANDOM'</span><span class="p">,</span>
+            <span class="s">'termination_criteria'</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">},</span>
+        <span class="s">'models'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'created_on'</span><span class="p">:</span> <span class="s">'1593979876.5036337'</span><span class="p">,</span>
+        <span class="s">'billable_size'</span><span class="p">:</span> <span class="s">'0'</span><span class="p">,</span>
+        <span class="s">'project_id'</span><span class="p">:</span> <span class="s">'e0e24bf5128c46308e578fa1e19783ef'</span><span class="p">,</span>
+        <span class="s">'experiment_id'</span><span class="p">:</span> <span class="s">'d157244577c04b1a83943b425a04f63a'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/job/get/&lt;project_id&gt;/&lt;job_id&gt;</code></p>
+
+<p>Retrieve a Job.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project that this Job belongs to</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>Job to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='get-aggregate-model'>Get aggregate model</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Job</span><span class="o">.</span><span class="n">get_aggregate_model</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                           <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/job/aggregate_model/&lt;project_id&gt;/&lt;job_id&gt;</code></p>
+
+<p>Retrieve a Job&#39;s aggregate model state dictionary.</p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>Job ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-start-model'>Get start model</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Job</span><span class="o">.</span><span class="n">get_start_model</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                       <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/job/start_model/&lt;project_id&gt;/&lt;job_id&gt;</code></p>
+
+<p>Retrieve a Job&#39;s start model state dictionary.</p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>Job ID</td>
+</tr>
+</tbody></table>
+<h1 id='devices'>Devices</h1>
+<p>Each Device represents an authenticated edge system in a Project.</p>
+<h2 id='is-device-active'>Is device active?</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Device</span><span class="o">.</span><span class="n">is_active</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                    <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">,</span>
+                                    <span class="n">device_id</span><span class="o">=</span><span class="s">"...Device ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"is_device_active"</span><span class="p">:</span> <span class="bp">True</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/device/is_active/&lt;project_id&gt;/&lt;job_id&gt;/&lt;device_id&gt;</code></p>
+
+<p>Returns a boolean value whether or not the specified Device is active in a specified Job.</p>
+
+<p>If this API endpoint is called using a device&#39;s API key, it will only be able to view status information about itself (and not other devices). If a user owns the API key, they will be able to view status information on all devices.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>project ID (the Project that the device belongs to)</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>job ID (the Job to check for status)</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>device ID</td>
+</tr>
+</tbody></table>
+<h2 id='register'>Register</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Device</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"device_id"</span><span class="p">:</span> <span class="s">"...Device ID..."</span><span class="p">,</span>
+        <span class="s">"device_api_key"</span><span class="p">:</span> <span class="s">"...Device API Key"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/device/create</code></p>
+
+<p>Creates a new device &amp; registers it to the specified Project.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project that the device will belong to</td>
+</tr>
+</tbody></table>
+<h2 id='submit-model'>Submit Model</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Device</span><span class="o">.</span><span class="n">submit_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="p">{},</span>
+                                       <span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                       <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"device_id"</span><span class="p">:</span> <span class="s">"...Device ID..."</span><span class="p">,</span>
+        <span class="s">"device_api_key"</span><span class="p">:</span> <span class="s">"...Device API Key"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/device/submit_model_update</code></p>
+
+<p>Uploads the device&#39;s model contribution for a specified Job.</p>
+
+<p>Users cannot call this endpoint with their account API keys. Only Devices are allowed to make calls to this endpoint. Additionally, Devices can only submit a model to a Job that is active, and which includes the device in it.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>model</td>
+<td>The dictionary state_dict representation of the neural network</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Project that the device will belong to</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>Job to submit the model to</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -774,10 +1005,6 @@
 <td>Forbidden -- You are not authorized to access this resource.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified resource could not be found.</td>
-</tr>
-<tr>
 <td>429</td>
 <td>Too Many Requests -- You&#39;re being rate limited.</td>
 </tr>
@@ -785,9 +1012,23 @@
 <td>500</td>
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
 </tr>
+</tbody></table>
+<h1 id='logging'>Logging</h1>
+<p>The Verge AI language bindings provide configurable logging.</p>
+<h2 id='configuring-the-log-level'>Configuring the log level</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">initialize_logger</span><span class="p">(</span><span class="s">"WARNING"</span><span class="p">)</span>
+</code></pre>
+<p>Set the log level.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>log_lvl</td>
+<td>One of: &quot;DEBUG&quot;, &quot;INFO&quot;, &quot;WARNING&quot;, &quot;ERROR&quot;</td>
 </tr>
 </tbody></table>
 

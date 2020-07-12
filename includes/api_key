@@ -1,0 +1,18 @@
+<h1 id='authentication'>Authentication</h1><h2 id='create-api-key'>Create API Key</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">APIKey</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"key"</span><span class="p">:</span> <span class="s">"...key plaintext value here..."</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/auth/create</code></p>
+
+<p>This endpoint creates a new API key. The new API key will provide programmatic access to all resources the user (specified by the auth token included in the request) is authorized for.</p>

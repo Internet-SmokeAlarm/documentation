@@ -1,0 +1,18 @@
+<h1 id='logging'>Logging</h1>
+<p>The Verge AI language bindings provide configurable logging.</p>
+<h2 id='configuring-the-log-level'>Configuring the log level</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">initialize_logger</span><span class="p">(</span><span class="s">"WARNING"</span><span class="p">)</span>
+</code></pre>
+<p>Set the log level.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>log_lvl</td>
+<td>One of: &quot;DEBUG&quot;, &quot;INFO&quot;, &quot;WARNING&quot;, &quot;ERROR&quot;</td>
+</tr>
+</tbody></table>

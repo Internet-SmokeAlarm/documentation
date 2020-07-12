@@ -1,19 +1,27 @@
 <h1 id='devices'>Devices</h1>
-<p>Devices are authenticated edge systems that are members of a specific group.</p>
-<h2 id='is-device-active'>Is device active?</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<p>Each Device represents an authenticated edge system in a Project.</p>
+<h2 id='is-device-active'>Is device active?</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">is_device_active</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">,</span> <span class="s">"round_id"</span><span class="p">,</span> <span class="s">"device_id"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Device</span><span class="o">.</span><span class="n">is_active</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                    <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">,</span>
+                                    <span class="n">device_id</span><span class="o">=</span><span class="s">"...Device ID..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"is_device_active"</span><span class="p">:</span> <span class="bp">True</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p><code>GET /v1/device/get/active/&lt;GROUP_ID&gt;/&lt;ROUND_ID&gt;/&lt;DEVICE_ID&gt;</code></p>
+<p><code>GET /v1/device/is_active/&lt;project_id&gt;/&lt;job_id&gt;/&lt;device_id&gt;</code></p>
 
-<p>Returns a boolean value whether or not this device is active in a specified learning round.</p>
+<p>Returns a boolean value whether or not the specified Device is active in a specified Job.</p>
+
+<p>If this API endpoint is called using a device&#39;s API key, it will only be able to view status information about itself (and not other devices). If a user owns the API key, they will be able to view status information on all devices.</p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -22,32 +30,37 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>GROUP_ID</td>
-<td>group ID (the group that the device belongs to)</td>
+<td>project_id</td>
+<td>project ID (the Project that the device belongs to)</td>
 </tr>
 <tr>
-<td>ROUND_ID</td>
-<td>round ID (learning round to parse)</td>
+<td>job_id</td>
+<td>job ID (the Job to check for status)</td>
 </tr>
 <tr>
-<td>DEVICE_ID</td>
+<td>device_id</td>
 <td>device ID</td>
 </tr>
 </tbody></table>
-<h2 id='register'>Register</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">FedLearnApi</span>
-<span class="kn">from</span> <span class="nn">fedlearn</span> <span class="kn">import</span> <span class="n">DefaultGateway</span>
+<h2 id='register'>Register</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">FedLearnApi</span><span class="p">(</span><span class="n">DefaultGateway</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">,</span> <span class="s">"...API Key Here..."</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">register_device</span><span class="p">(</span><span class="s">"group_id"</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Device</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
 <p>Returns:</p>
 </blockquote>
-<pre class="highlight python tab-python"><code><span class="n">Device</span> <span class="nb">object</span>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"device_id"</span><span class="p">:</span> <span class="s">"...Device ID..."</span><span class="p">,</span>
+        <span class="s">"device_api_key"</span><span class="p">:</span> <span class="s">"...Device API Key"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p><code>POST /v1/device/register</code></p>
+<p><code>POST /v1/device/create</code></p>
 
-<p>Creates a new device &amp; registers it to the specified group.</p>
+<p>Creates a new device &amp; registers it to the specified Project.</p>
 <h3 id='request-body'>Request Body</h3>
 <table><thead>
 <tr>
@@ -56,7 +69,50 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>group_id</td>
-<td>group ID that the new device will belong to</td>
+<td>project_id</td>
+<td>Project that the device will belong to</td>
+</tr>
+</tbody></table>
+<h2 id='submit-model'>Submit Model</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Device</span><span class="o">.</span><span class="n">submit_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="p">{},</span>
+                                       <span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                       <span class="n">job_id</span><span class="o">=</span><span class="s">"...Job ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"device_id"</span><span class="p">:</span> <span class="s">"...Device ID..."</span><span class="p">,</span>
+        <span class="s">"device_api_key"</span><span class="p">:</span> <span class="s">"...Device API Key"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/device/submit_model_update</code></p>
+
+<p>Uploads the device&#39;s model contribution for a specified Job.</p>
+
+<p>Users cannot call this endpoint with their account API keys. Only Devices are allowed to make calls to this endpoint. Additionally, Devices can only submit a model to a Job that is active, and which includes the device in it.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>model</td>
+<td>The dictionary state_dict representation of the neural network</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Project that the device will belong to</td>
+</tr>
+<tr>
+<td>job_id</td>
+<td>Job to submit the model to</td>
 </tr>
 </tbody></table>

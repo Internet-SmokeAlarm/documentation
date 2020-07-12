@@ -1,0 +1,139 @@
+<h1 id='projects'>Projects</h1>
+<p>A Project contains all resources associated with one Federated Learning deployment, including Experiments, Jobs, and Devices. Additionally, users can be configured on a per-project level.</p>
+<h2 id='create'>Create</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s">"My Friendly Project Name"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'project_id'</span><span class="p">:</span> <span class="s">'92cae23fa2754c5982866471c9b43fb7'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/project/create</code></p>
+
+<p>Create a new Project.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_name</td>
+<td>Friendly name of the project</td>
+</tr>
+</tbody></table>
+<h2 id='delete'>Delete</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/project/delete</code></p>
+
+<p>Delete a Project.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+</tbody></table>
+<h2 id='get'>Get</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'name'</span><span class="p">:</span> <span class="s">'my_name'</span><span class="p">,</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'cdace1ad391e444aa5ade2ce7f04c5e6'</span><span class="p">,</span>
+        <span class="s">'devices'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'experiments'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'9148548012074b068ba6d260f675ab50'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">'is_active'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s">'jobs'</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s">'hyperparameters'</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s">'ID'</span><span class="p">:</span> <span class="s">'9148548012074b068ba6d260f675ab50'</span><span class="p">,</span>
+                <span class="s">'current_job'</span><span class="p">:</span> <span class="s">'NONE'</span><span class="p">,</span>
+                <span class="s">'current_model'</span><span class="p">:</span> <span class="p">{}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">'members'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'123123'</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">'permission_level'</span><span class="p">:</span> <span class="mi">100</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">'billing'</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/project/get/&lt;project_id&gt;</code></p>
+
+<p>Get a Project.</p>
+<h3 id='request-body-3'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-active-jobs'>Get active jobs</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">active_jobs</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'job_ids'</span><span class="p">:</span> <span class="p">[</span><span class="s">'3800a892631b4c75b41f035e304c36c4'</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/project/active_jobs/&lt;project_id&gt;</code></p>
+
+<p>Get a list of active Jobs in a Project.</p>
+<h3 id='request-body-4'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+</tbody></table>

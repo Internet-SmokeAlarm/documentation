@@ -1,0 +1,132 @@
+<h1 id='experiments'>Experiments</h1>
+<p>An experiment represents a single model + hyperparameter configuration, and is comprised of a series of Jobs, which are executed sequentially to train the provided model with the specified hyperparameters.</p>
+<h2 id='create-experiment'>Create Experiment</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'64fb44b25e0d48d2b74e120513687bd7'</span><span class="p">,</span>
+        <span class="s">'jobs'</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s">'hyperparameters'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'current_job'</span><span class="p">:</span> <span class="s">'NONE'</span><span class="p">,</span>
+        <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'current_model'</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s">'is_active'</span><span class="p">:</span> <span class="bp">False</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/experiment/create</code></p>
+
+<p>Create a new experiment.</p>
+<h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-experiment'>Get Experiment</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                  <span class="n">experiment_id</span><span class="o">=</span><span class="s">"...Experiment ID..."</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ID'</span><span class="p">:</span> <span class="s">'e627ffd92d6449e9a411b6462b47b47d'</span><span class="p">,</span>
+        <span class="s">'jobs'</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s">'hyperparameters'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'learning_rate'</span><span class="p">:</span> <span class="mf">0.01</span>
+        <span class="p">},</span>
+        <span class="s">'current_job'</span><span class="p">:</span> <span class="s">'NONE'</span><span class="p">,</span>
+        <span class="s">'start_model'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'entity_id'</span><span class="p">:</span> <span class="s">'e627ffd92d6449e9a411b6462b47b47d'</span><span class="p">,</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="s">'ace0e5d0f50c40ec89e38f770c23eedd/e627ffd92d6449e9a411b6462b47b47d/start_model'</span><span class="p">,</span>
+            <span class="s">'size'</span><span class="p">:</span> <span class="s">'403693'</span>
+        <span class="p">},</span>
+        <span class="s">'current_model'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'entity_id'</span><span class="p">:</span> <span class="s">'e627ffd92d6449e9a411b6462b47b47d'</span><span class="p">,</span>
+            <span class="s">'name'</span><span class="p">:</span> <span class="s">'ace0e5d0f50c40ec89e38f770c23eedd/e627ffd92d6449e9a411b6462b47b47d/start_model'</span><span class="p">,</span>
+            <span class="s">'size'</span><span class="p">:</span> <span class="s">'403693'</span>
+        <span class="p">},</span>
+        <span class="s">'is_active'</span><span class="p">:</span> <span class="bp">False</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>GET /v1/experiment/get/&lt;project_id&gt;/&lt;experiment_id&gt;</code></p>
+
+<p>Get an experiment.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>experiment_id</td>
+<td>The experiment that this start model will be submitted to</td>
+</tr>
+</tbody></table>
+<h2 id='submit-start-model'>Submit start model</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">vergeai</span>
+<span class="n">vergeai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"...API Key Here..."</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">vergeai</span><span class="o">.</span><span class="n">Experiment</span><span class="o">.</span><span class="n">submit_start_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">},</span>
+                                                 <span class="n">project_id</span><span class="o">=</span><span class="s">"...Project ID..."</span><span class="p">,</span>
+                                                 <span class="n">experiment_id</span><span class="o">=</span><span class="s">"...Experiment ID..."</span><span class="p">,</span>
+                                                 <span class="n">block</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Returns:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="p">{</span>
+    <span class="s">"statusCode"</span><span class="p">:</span> <span class="mi">204</span><span class="p">,</span>
+    <span class="s">"body"</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+<p><code>POST /v1/experiment/submit_start_model</code></p>
+
+<p>Submit an experiment&#39;s start model.</p>
+<h3 id='request-body-2'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>model</td>
+<td>dictionary</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Project ID</td>
+</tr>
+<tr>
+<td>experiment_id</td>
+<td>The experiment that this start model will be submitted to</td>
+</tr>
+<tr>
+<td>block</td>
+<td>True/False whether or not we should wait to prevent stale data</td>
+</tr>
+</tbody></table>
